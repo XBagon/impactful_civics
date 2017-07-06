@@ -1,0 +1,429 @@
+namespace = civics
+
+@tier1influencecontact = 7
+@tier1influencecontactxenophile = 8
+@tier1influencecontactmin = 20
+@tier1influencecontactmax = 80
+
+@tier2influencecontact = 10
+@tier2influencecontactxenophile = 12
+@tier2influencecontactmin = 40
+@tier2influencecontactmax = 100
+
+@tier1materialreward = 6
+@tier1materialmin = 100
+@tier1materialmax = 500
+@tier2materialreward = 12
+@tier2materialmin = 150
+@tier2materialmax = 1000
+@tier3materialreward = 18
+@tier3materialmin = 250
+@tier3materialmax = 1500
+@tier4materialreward = 24
+@tier4materialmin = 350
+@tier4materialmax = 2000
+@tier5materialreward = 48
+@tier5materialmin = 700
+@tier5materialmax = 4000
+
+@tier1influencereward = 6
+@tier1influencemin = 40
+@tier1influencemax = 100
+@tier2influencereward = 12
+@tier2influencemin = 80
+@tier2influencemax = 175
+@tier3influencereward = 18
+@tier3influencemin = 125
+@tier3influencemax = 250
+@tier4influencereward = 24
+@tier4influencemin = 150
+@tier4influencemax = 300
+@tier5influencereward = 36
+@tier5influencemin = 250
+@tier5influencemax = 500
+@tier6influencereward = 48
+@tier6influencemin = 300
+@tier6influencemax = 600
+
+@tier1unityreward = 6
+@tier1unitymin = 100
+@tier1unitymax = 500
+@tier2unityreward = 12
+@tier2unitymin = 150
+@tier2unitymax = 1000
+@tier3unityreward = 18
+@tier3unitymin = 250
+@tier3unitymax = 1500
+@tier4unityreward = 24
+@tier4unitymin = 350
+@tier4unitymax = 2000
+@tier5unityreward = 48
+@tier5unitymin = 700
+@tier5unitymax = 4000
+
+@tier1researchreward = 6
+@tier1researchmin = 60
+@tier1researchmax = 150
+@tier2researchreward = 12
+@tier2researchmin = 90
+@tier2researchmax = 250
+@tier3researchreward = 18
+@tier3researchmin = 120
+@tier3researchmax = 350
+@tier4researchreward = 24
+@tier4researchmin = 150
+@tier4researchmax = 500
+@tier5researchreward = 48
+@tier5researchmin = 300
+@tier5researchmax = 1000
+
+event = {
+	id = civics.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			NOT = {
+				has_civic = civic_fanatic_purifiers
+			}
+			is_country_type = fanatic_purifiers_country
+		}
+	}
+		
+	
+	immediate = {
+		every_country = {
+			limit = {
+				AND = {
+					NOT = {
+						has_civic = civic_fanatic_purifiers
+					}
+					is_country_type = fanatic_purifiers_country
+				}
+			}
+			set_country_type = default
+		}
+	}
+}
+
+
+
+#Game_start event
+country_event = {
+	id = civics.2
+	title = civics.2.name
+	desc = civics.2.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	location = from
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = default
+		has_civic = civic_fanatic_purifiers
+	}
+	
+	option = {
+		name = "civics.2.a"
+		trigger = { has_authority = auth_imperial }
+			
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = fanatic_purifiers_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "united_in_purpose"
+			days = -1 # -1 = never expires
+		}
+	}
+	option = {
+		name = "civics.2.b"
+		trigger = { has_ethic = ethic_militarist }
+			
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = fanatic_purifiers_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "united_in_purpose"
+			days = -1 # -1 = never expires
+		}
+	}
+	option = {
+		name = "civics.2.c"
+		trigger = { has_ethic = ethic_spiritualist }
+		
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = fanatic_purifiers_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "united_in_purpose"
+			days = -1 # -1 = never expires
+		}
+	}
+}
+
+
+
+#Midgame change of civics
+country_event = {
+	id = civics.3
+	title = civics.3.name
+	desc = civics.3.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	location = from
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = default
+		has_civic = civic_fanatic_purifiers
+	}
+	option = {
+		name = "civics.3.a"
+		trigger = { has_authority = auth_imperial }
+			
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = fanatic_purifiers_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "united_in_purpose"
+			days = -1 # -1 = never expires
+		}
+	}
+	option = {
+		name = "civics.3.b"
+		trigger = { has_ethic = ethic_militarist }
+			
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = fanatic_purifiers_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "united_in_purpose"
+			days = -1 # -1 = never expires
+		}
+	}
+	option = {
+		name = "civics.3.c"
+		trigger = { has_ethic = ethic_spiritualist }
+		
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = fanatic_purifiers_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "united_in_purpose"
+			days = -1 # -1 = never expires
+		}
+	}
+}
+
+#placeholder event as you cant call country events in game_start
+event = {
+	id = civics.4
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_country = {
+			OR = {
+				has_civic = civic_fanatic_purifiers
+				has_civic = civic_hive_devouring_swarm
+			}
+			is_country_type = default
+		}
+	}
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					has_civic = civic_fanatic_purifiers
+					has_civic = civic_hive_devouring_swarm
+				}
+				is_country_type = default
+			}
+			if = {
+				limit = { has_civic = civic_fanatic_purifiers }
+				country_event = { id = civics.2 }
+				else = {
+					if = { 
+						Limit = { has_civic = civic_hive_devouring_swarm }
+						country_event = { id = civics.7 }
+					}
+				}
+			}
+		}
+	}
+}
+
+event = {
+	id = civics.5
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		any_country = {
+			OR = {
+				has_civic = civic_fanatic_purifiers
+				has_civic = civic_hive_devouring_swarm
+			}
+			is_country_type = default
+		}
+	}
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					has_civic = civic_fanatic_purifiers
+					has_civic = civic_hive_devouring_swarm
+				}
+				is_country_type = default
+			}
+			if = {
+				limit = { has_civic = civic_fanatic_purifiers }
+				country_event = { id = civics.3 }
+				else = {
+					if = { 
+						Limit = { has_civic = civic_hive_devouring_swarm }
+						country_event = { id = civics.6 }
+					}
+				}
+			}
+		}
+	}
+}
+
+#Game Start
+country_event = {
+	id = civics.6
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = default
+		has_civic = civic_hive_devouring_swarm
+	}
+	immediate = {
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = devouring_swarm_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "killer_instinct"
+			days = -1 # -1 = never expires
+		}
+	}
+}
+
+#Midgame change of civics
+country_event = {
+	id = civics.7
+	title = civics.7.name
+	desc = civics.7.desc
+	picture = GFX_evt_fallen_empire
+	show_sound = event_alien_signal
+	location = from
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = default
+		has_civic = civic_hive_devouring_swarm
+	}
+	option = {
+		name = "civics.7.a"
+			
+		#Change Country Type and refill stocks as they get depleted upon change.
+		set_country_type = devouring_swarm_country
+		add_energy = 100
+		add_minerals = 200
+		add_food = 100
+		add_influence = 100
+		add_modifier = {
+			modifier = "killer_instinct"
+			days = -1 # -1 = never expires
+		}
+	}
+}
+
+
+#############################
+# CUSTOM DIPLOMATIC ACTIONS #
+#############################
+# First Contact Empires
+country_event = {
+	id = civics.1000
+	title = "civics.1000.name"
+	desc = { 
+		text = "civics.1000.a.desc"
+		trigger = { 
+			is_country_type = fanatic_purifiers_country
+		}
+	}
+	desc = { 
+		text = "civics.1000.b.desc"
+		trigger = { 
+			is_country_type = default
+		}
+	}	
+	picture = GFX_evt_star_chart
+	location = FROMFROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				is_country_type = default
+				FROM = {
+					is_country_type = fanatic_purifiers_country
+				}
+			}
+			AND = {
+				is_country_type = fanatic_purifiers_country
+				FROM = {
+					is_country_type = default
+				}
+			}
+			AND = {
+				is_country_type = fanatic_purifiers_country
+				FROM = {
+					is_country_type = fanatic_purifiers_country
+				}
+			}
+		}
+		exists = capital_scope
+		NOT = { has_country_flag = day_0 }
+		from = { NOT = { has_country_flag = day_0 } }
+	}
+
+	immediate = {
+		establish_communications = FROM
+	}
+	
+	option = {
+		name = "civics.1000.a"
+		custom_tooltip = civics.1000.a_desc
+		trigger = { is_country_type = default }
+	}
+	option = {
+		name = "civics.1000.b"
+		custom_tooltip = civics.1000.b_desc
+		trigger = { is_country_type = fanatic_purifiers_country }
+	}
+}
