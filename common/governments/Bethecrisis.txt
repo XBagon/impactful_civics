@@ -1,0 +1,12 @@
+# Fanatic Purifier Crisis
+gov_fanatic_purifiers = {
+	ruler_title = RT_FANATIC_PURIFIERS
+
+	possible = {
+		has_civic = civic_fanatic_purifiers
+	}
+
+	weight = {
+		base = 100000
+	}
+}

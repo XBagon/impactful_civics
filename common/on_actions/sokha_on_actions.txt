@@ -1,0 +1,18 @@
+# Triggers when the game starts
+on_game_start = {
+	events = {
+		civics.4
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		civics.5
+	}
+}
+
+on_first_contact = {
+	events = {
+		civics.1000
+	}
+}
